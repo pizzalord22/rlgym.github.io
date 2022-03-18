@@ -8,7 +8,7 @@ Observation builders need to implement two methods.
 reset(self, initial_state: GameState)
 
 #Called once per step and reset.
-build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> Any
+build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> any
 ```
 
 Implementing a custom `ObsBuilder` is just as easy as implementing a custom `RewardFunction`. All we have to do is inherit from the parent class and implement the above methods.
@@ -22,7 +22,7 @@ class CustomObsBuilder(ObsBuilder):
   def reset(self, initial_state: GameState):
     pass
 
-  def build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> Any:
+  def build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> any:
     obs = []
     obs += state.ball.serialize()
     
@@ -58,7 +58,7 @@ class CustomObsBuilderBluePerspective(ObsBuilder):
   def reset(self, initial_state: GameState):
     pass
 
-  def build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> Any:
+  def build_obs(self, player: PlayerData, state: GameState, previous_action: np.ndarray) -> any:
     obs = []
     
     #If this observation is being built for a player on the orange team, we need to invert all the physics data we use.
